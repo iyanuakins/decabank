@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <title>Deca Bank | Login</title>
+</head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="/"><img src="./assets/images/logo.png" alt="logo" width="200px" height="auto"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon text-success"></span>
+                        </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-success mr-3">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-success mr-3">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-success mr-3">FAQs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/login.html" class="nav-link text-success btn btn-outline-success mr-3 mb-1"><span class="pl-3 pr-3"> Login </span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/register.html" class="nav-link btn btn-success"><span class="pl-5 pr-5 mt-1"> Register </span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-xs-12">
+                        <div class="alert alert-success alert-dismissible fade show m-2 p-2 "  id="msgBox">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show m-2 p-2 "  id="errBox">
+                                Email or Password is wrong
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <div class="jumbotron reg-box mt-2">
+                            <p class="top-text1 text-center mb-3">Login Form</p>
+                        <form class="mt-5">
+                            <div></div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label for="email" class="sr-only">Email</label>
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Email</div>
+                                    </div>
+                                    <input type="email" class="form-control" id="email" placeholder="johndoe@example.com">
+                                </div>
+                                <small id="emailMsg" class="text-danger"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label for="password" class="sr-only">Password</label>
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Password</div>
+                                    </div>
+                                    <input type="password" class="form-control" id="password" placeholder="********************">
+                                </div>
+                                <small id="pwMsg" class="text-danger"></small>
+                            </div>
+
+                            <button type="button" class="btn bg-success btn-outline-light btn-lg float-right" id="submit"> Login </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <footer class="bg-dark text-white-50 pt-3">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                      <div class="ml-2">
+                          <p class="card-text">Deca Bank</p>
+                          <p>Copyright &copy; 2019</p>
+                          <p> All Right Reserved</p>
+                      </div>
+                      
+                    </div>
+              
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                      <p><strong>QUICK LINKS</strong></p>
+                        <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a class="nav-link footerLinks text-success" href="#"> ABOUT US </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link footerLinks text-success" href="#"> FAQs </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link footerLinks text-success" href="#"> CONTACT US </a>
+                          </li>
+                        </ul>
+                    </div>
+              
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                      <p><strong>OFFICE ADDRESS</strong></p>
+                      <p>No 24, Noila Plaza, <br> Gboworin crescent, <br>Surulere, Lagos State</p>
+                    </div>
+                  </div>
+                </div>
+                
+              </footer>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="./assets/js/login.js"></script>
+    </body>
+</html>

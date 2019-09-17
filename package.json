@@ -1,0 +1,18 @@
+{
+  "name": "bootcamp",
+  "version": "1.0.0",
+  "description": "bootcamp practice",
+  "main": "index.js",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "iyanu akins",
+  "license": "ISC"
+}

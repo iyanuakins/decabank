@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "firstName": "iyanu",
+      "lastName": "ayo",
+      "phoneNumber": "08066766771",
+      "address": "dfghjkl;'",
+      "email": "iyanuakins11@gmail.com",
+      "balance": "400",
+      "password": "111111",
+      "date": "1568737100176",
+      "id": 5
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "type": "",
+      "email": "",
+      "balance": 0,
+      "amount": 0,
+      "date": ""
+    },
+    {
+      "type": "deposit",
+      "email": "iyanuakins11@gmail.com",
+      "balance": "010000",
+      "amount": "10000",
+      "date": "1568736593594",
+      "id": 2
+    }
+  ]
+}
