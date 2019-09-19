@@ -4,10 +4,7 @@
   "description": "bootcamp practice",
   "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.10.0",
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.15.0"
+    "json-server": "^0.15.1"
   },
   "devDependencies": {},
   "scripts": {

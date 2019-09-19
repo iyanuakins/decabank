@@ -46,7 +46,7 @@ $(document).ready(function () {
     $("#phonenumber").blur(function (e) { 
         e.preventDefault();
         let phonenumber = $("#phonenumber").val();
-        let numExp = /\d{11}/;
+        let numExp = /^0(7|8|9)(0|1)(\d{8}$)/;
         let isNum = numExp.test(phonenumber)
         if (phonenumber == '') {
             $("#phNumMsg").text("This field is required");

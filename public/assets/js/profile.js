@@ -168,14 +168,11 @@ $(document).ready(function () {
                                 lastName,
                                 phoneNumber,
                                 address,
-                                email,
-                                balance:  user.balance, 
-                                password: user.password,
-                                date: user.date
+                                email
                             }
                         
                             $.ajax({
-                                type: "put",
+                                type: "patch",
                                 url: `${userUrl}/${userID}`,
                                 data: newUserData,
                                 dataType: "json",
@@ -281,21 +278,12 @@ $(document).ready(function () {
             let password = $("#new-password").val();
             let curPassword = $("#old").val();
             if (curPassword == user.password) {
-                let newUserData = {
-                firstName: user.firstName,
-                lastName: user.lastName,
-                phoneNumber: user.phoneNumber,
-                address: user.address,
-                email: user.email,
-                balance:  user.balance, 
-                password: password,
-                date: user.date
-            }
+                
 
                 $.ajax({
-                    type: "put",
+                    type: "patch",
                     url: `${userUrl}/${userID}`,
-                    data: newUserData,
+                    data: { password },
                     dataType: "json",
                     success: function (res) {
                         localStorage.setItem("update", 'password');

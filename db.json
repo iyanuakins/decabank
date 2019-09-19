@@ -1,15 +1,26 @@
 {
   "users": [
     {
-      "firstName": "iyanuoluwa",
+      "firstName": "iyanu",
       "lastName": "ayo",
       "phoneNumber": "08066766771",
       "address": "dfghjkl;'",
       "email": "iyanuakins11@gmail.com",
       "balance": "2000",
-      "password": "111111",
+      "password": "222222",
       "date": "1568737100176",
       "id": 5
+    },
+    {
+      "firstName": "Victor",
+      "lastName": "Adebayo",
+      "phoneNumber": "09132456591",
+      "address": "Query",
+      "email": "Adebayovicktor@yahoo.com",
+      "balance": "1000000",
+      "password": "234561",
+      "date": "1568892558632",
+      "id": 6
     }
   ],
   "transactions": [
@@ -36,6 +47,62 @@
       "amount": "3000",
       "date": "1568887078177",
       "id": 3
+    },
+    {
+      "type": "deposit",
+      "userID": "6",
+      "balance": "1000000",
+      "amount": "1000000",
+      "date": "1568892766284",
+      "id": 4
+    },
+    {
+      "type": "deposit",
+      "userID": "6",
+      "balance": "2000000",
+      "amount": "1000000",
+      "date": "1568892808689",
+      "id": 5
+    },
+    {
+      "type": "withdrawal",
+      "userID": "6",
+      "balance": "1000000",
+      "amount": "1000000",
+      "date": "1568892832620",
+      "id": 6
+    },
+    {
+      "type": "deposit",
+      "userID": "5",
+      "balance": "12000",
+      "amount": "10000",
+      "date": "1568896767009",
+      "id": 7
+    },
+    {
+      "type": "withdrawal",
+      "userID": "5",
+      "balance": "2000",
+      "amount": "10000",
+      "date": "1568896822536",
+      "id": 8
+    },
+    {
+      "type": "deposit",
+      "userID": "5",
+      "balance": "3000",
+      "amount": "1000",
+      "date": "1568907992802",
+      "id": 9
+    },
+    {
+      "type": "withdrawal",
+      "userID": "5",
+      "balance": "2000",
+      "amount": "1000",
+      "date": "1568908032473",
+      "id": 10
     }
   ]
 }
