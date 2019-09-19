@@ -1,39 +1,37 @@
-if(!!localStorage.getItem('loggedUser')) {
-    let loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
-    let loggedTime = loggedUser.timeStamp;
-    let now = Date.now();
-    if(loggedTime - now < 0) {
-        localStorage.removeItem('loggedUser')
-    } else{
-        let data = {userID: loggedUser.userID, timeStamp: Date.now() + 10800000}
-        localStorage.setItem("loggedUser", JSON.stringify(data));
-        $(location).attr("href", '/user/dashboard.html');
-    }
-}
-
 $(document).ready(function () {
     let uri = "http://localhost:3000/users";
     let status = [false, false];
 
-    $("#msgBox").hide();
-    $("#errBox").hide();
     let isRegistered = localStorage.getItem("isRegistered");
     if(isRegistered == "true") {
         localStorage.removeItem("isRegistered");
-        $("#msgBox").text("Registration successful, Please login below.");
-        $("#msgBox").show()
+        $("#msg-hold").append(`
+        <div class="alert alert-success alert-dismissible fade show m-2 p-2 text-center">
+            Registration successful, Please login below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        `);
         setTimeout(() => {
-            $("#msgBox").hide();
+            $("#msg-hold").empty();
         }, 3000);
     }
 
     let isLogout = localStorage.getItem("isLogout");
     if(isLogout == "true") {
         localStorage.removeItem("isLogout");
-        $("#msgBox").text("Logout successful, Thanks for saving with us.");
-        $("#msgBox").show()
+
+        $("#msg-hold").append(`
+        <div class="alert alert-success alert-dismissible fade show m-2 p-2 text-center">
+            Logout successful, Thanks for banking with us.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        `);
         setTimeout(() => {
-            $("#msgBox").hide();
+            $("#msg-hold").empty();
         }, 3000);
     }
 
@@ -94,16 +92,34 @@ $(document).ready(function () {
                         $(location).attr("href", '/user/dashboard.html');
                         
                     } else {
-                        $("#errBox").show()
-
+                        $("#msg-hold").append(`
+                            <div class="alert alert-danger alert-dismissible fade show m-2 p-2 text-center">
+                                Authentication failed: Email or Password is incorrect.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        `);
+                        
                         setTimeout(() => {
-                            $("#errBox").hide();
+                            $("#msg-hold").empty();
                         }, 3000);
                     }
                 }
             );
         } else {
-            alert("One or more fields is/are wrong, please correct and resubmit")
+            $("#msg-hold").append(`
+                <div class="alert alert-danger alert-dismissible fade show m-2 p-2 text-center">
+                    Unable to change password: Correct form fields
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            `);
+
+            setTimeout(() => {
+                $("#msg-hold").empty();
+            }, 3000);
         }
     });
 });

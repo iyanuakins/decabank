@@ -7,6 +7,7 @@ $(document).ready(function () {
     $.get(`${userUrl}/${userID}`,
         function (res) {
             $("#name-holder").html(`<i class="fas fa-user"></i> ${res.lastName}`);
+            $("#max").val("₦" +res.balance);
             $("#fullName").val(`${res.firstName} ${res.lastName}`);
             localStorage.setItem("response", JSON.stringify(res));
         }
@@ -28,8 +29,11 @@ $(document).ready(function () {
         } else if (!isAmt) {
             $("#amtMsg").html("Amount must be in Numbers only");
             isValid = false;
-        } else if (amount < 100 || amount > 1000000) {
-            $("#amtMsg").html("Amount must be between &#8358;100 - &#8358;1000000");
+        } else if (amount < 1000 || amount > 1000000) {
+            $("#amtMsg").html("Amount must be between &#8358;1000 - &#8358;1000000");
+            isValid = false;
+        } else if (amount > parseInt(user.balance)) {
+            $("#amtMsg").html(`You can not withdramal more than ${user.balance}`);
             isValid = false;
         } else {
             $("#amtMsg").html("");
@@ -45,9 +49,9 @@ $(document).ready(function () {
             let amount = $("#amount").val();
             
             let data = {
-                type: "deposit",
+                type: "withdrawal",
                 userID,
-                balance:  parseInt(user.balance) + parseInt(amount),
+                balance:  parseInt(user.balance) - parseInt(amount),
                 amount,
                 date: Date.now()
             }
@@ -58,7 +62,7 @@ $(document).ready(function () {
                 phoneNumber: user.phoneNumber,
                 address: user.address,
                 email: user.email,
-                balance:  parseInt(user.balance) + parseInt(amount), 
+                balance:  parseInt(user.balance) - parseInt(amount), 
                 password: user.password,
                 date: user.date
             }
@@ -72,7 +76,7 @@ $(document).ready(function () {
                         data: newUserData,
                         dataType: "json",
                         success: function (res) {
-                            let details = {type: 'deposit', amount: amount}
+                            let details = {type: 'withdraw', amount: amount}
                             localStorage.setItem("trans", JSON.stringify(details));
                             $(location).attr("href", '/user/dashboard.html');
                         }

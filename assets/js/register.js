@@ -1,16 +1,3 @@
-if(!!localStorage.getItem('loggedUser')) {
-    let loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
-    let loggedTime = loggedUser.timeStamp;
-    let now = Date.now();
-    if(loggedTime - now < 0) {
-        localStorage.removeItem('loggedUser')
-    } else{
-        let data = {userID: loggedUser.userID, timeStamp: Date.now() + 10800000}
-        localStorage.setItem("loggedUser", JSON.stringify(data));
-        $(location).attr("href", '/user/dashboard.html');
-    }
-}
-
 $(document).ready(function () {
     let uri = "http://localhost:3000/users";
     let status = [false, false, false, false, false, false, false];

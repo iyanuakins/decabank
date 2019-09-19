@@ -49,11 +49,11 @@
 
 .jumbo-border {
     border-bottom: #28a745 3px solid;
-    box-shadow: -0.3rem -0.3rem 0.5rem #5f926b
+    box-shadow: -0.3rem -0.3rem 0.5rem #5f926b;
 }
 
 .text-bolder {
-    font-size: 3.2rem;
+    font-size: 2.2rem;
 	font-weight: bold;
     color: rgb(11, 31, 19);
 }
@@ -63,7 +63,6 @@
 	font-weight: bold;
     color: rgb(20, 54, 34);
     text-align: center;
-    
 }
 
 .icon {
@@ -83,6 +82,18 @@
     padding: 1rem 2rem 4rem 2rem;
 }
 
-a .nav-link.active {
-    color: #ffffff;
+a#profile-tab, a#update-tab, a#password-tab{
+    color: #28a745 !important;
+    border-bottom-color: #28a745;
+}
+
+a#profile-tab.active, a#update-tab.active, a#password-tab.active{
+    color: #ffffff !important;
+    background: #28a745 !important;
+}
+
+.text-black-50 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0c3616  !important;
 }

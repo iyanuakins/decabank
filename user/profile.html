@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/authCheck.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <title>Deca Bank | Transaction History</title>
+</head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/user/dashboard.html"><img src="../assets/images/logo.png" alt="logo" width="200px" height="auto"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon text-success"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="/user/deposit.html" class="nav-link text-success mr-3"><i class="fas fa-donate"></i> Deposit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user/withdraw.html" class="nav-link text-success mr-3"><i class="fas fa-hand-holding-usd"></i> Withdraw</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user/history.html" class="nav-link text-success mr-3"><i class="fa fa-history" aria-hidden="true"></i> History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user/profile.html" class="nav-link text-white mr-3"><i class="fas fa-user-edit"></i> Update Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user/profile.html" class="nav-link text-success btn btn-outline-success mr-3 mb-1"><span class="pl-3 pr-3" id="name-holder"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-danger pointer" id="logoutBtn"><span class="pl-3 pr-3 mt-1"><i class="fa fa-power-off"></i> Logout </span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="msg-holder" class=" container mt-2 mb-3"></div>
+        
+        <div class="container mt-4 mb-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mt-2 mb-2 text-black-50" id="dateReg"></div>
+                            <nav>
+                                <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="nav-profile" aria-selected="true">Your Profile</a>
+                                    <a class="nav-item nav-link" id="update-tab" data-toggle="tab" href="#update" role="tab" aria-controls="nav-update" aria-selected="false">Update Profile</a>
+                                    <a class="nav-item nav-link" id="password-tab" data-toggle="tab" href="#password" role="tab" aria-controls="nav-password" aria-selected="false">Change password</a>
+                                </div>
+                            </nav>
+                            <div class="tab-content mt-4" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="container">
+                                        <div class="col-md-8 offset-md-2 col-xs-12">
+                                            <form class="mt-3">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="up-fname" class="sr-only">Firstname</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Firstname</div>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="up-fname" readonly>
+                                                    </div>
+                                                    <small id="fnameMsg" class="text-danger"></small>
+                                                </div>
+                                    
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="up-lname" class="sr-only">Lastname</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Lastname</div>
+                                                        </div>
+                                                        <input type="text" class="form-control"id="up-lname" readonly>
+                                                    </div>
+                                                    <small id="lnameMsg" class="text-danger"></small>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="up-email" class="sr-only">Email</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Email</div>
+                                                        </div>
+                                                        <input type="email" class="form-control" id="up-email" readonly>
+                                                    </div>
+                                                    <small id="emailMsg" class="text-danger"></small>
+                                                </div>
+                                    
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="up-phonenumber" class="sr-only">Phone Number</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Phone Number</div>
+                                                        </div>
+                                                        <input type="tel" class="form-control" id="up-phonenumber" readonly>
+                                                    </div>
+                                                    <small id="phNumMsg" class="text-danger"></small>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="up-address" class="sr-only">address</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Address</div>
+                                                        </div>
+                                                        <textarea name="address" id="up-address" class="form-control" rows="2" readonly></textarea>
+                                                    </div>
+                                                    <small id="adrMsg" class="text-danger"></small>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
+                                    <div class="container">
+                                        <div class="col-md-8 offset-md-2 col-xs-12">
+                                            <div id="update-msg"></div>
+                                            <form class="mt-3">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="fname" class="sr-only">Firstname</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Firstname</div>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="fname" placeholder="John">
+                                                    </div>
+                                                    <small id="fname-msg" class="text-danger"></small>
+                                                </div>
+                                    
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="lname" class="sr-only">Lastname</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Lastname</div>
+                                                        </div>
+                                                        <input type="text" class="form-control"id="lname" placeholder="Doe">
+                                                    </div>
+                                                    <small id="lname-msg" class="text-danger"></small>
+                                                </div>
+                    
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="email" class="sr-only">Email</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Email</div>
+                                                        </div>
+                                                        <input type="email" class="form-control" id="email" placeholder="johndoe@example.com">
+                                                    </div>
+                                                    <small id="email-msg" class="text-danger"></small>
+                                                </div>
+                                    
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="phonenumber" class="sr-only">Phone Number</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Phone Number</div>
+                                                        </div>
+                                                        <input type="tel" class="form-control" id="phonenumber" placeholder="08000000000">
+                                                    </div>
+                                                    <small id="ph-msg" class="text-danger"></small>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="address" class="sr-only">address</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Address</div>
+                                                        </div>
+                                                        <textarea name="address" id="address" class="form-control" rows="2"></textarea>
+                                                    </div>
+                                                    <small id="adr-msg" class="text-danger"></small>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="upCurPassword" class="sr-only">Current Password</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Current Password</div>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="upCurPassword"  minlength="6" maxlength="32" placeholder="Enter current password to update profile">
+                                                    </div>
+                                                    <small id="upCurMsg" class="text-danger"></small>
+                                                </div>
+    
+                                                <button type="button" class="btn bg-success btn-outline-light btn-lg float-right" id="update-submit"> Update Profile </button>
+                    
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                                    <div class="container">
+                                        <div class="col-md-8 offset-md-2 col-xs-12">
+                                            <div id="pass-msg" class="text-center"></div>
+                                            <form class="mt-3">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="new-password" class="sr-only">New Password</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">New Password</div>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="new-password" minlength="6" maxlength="32" placeholder="********************">
+                                                    </div>
+                                                    <small id="pwMsg" class="text-danger"></small>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="cnewPassword" class="sr-only">Confirm New Password</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Comfirm New Password</div>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="cnewPassword"  minlength="6" maxlength="32" placeholder="********************">
+                                                    </div>
+                                                    <small id="cpwMsg" class="text-danger"></small>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="old" class="sr-only">Old Password</label>
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">Old Password</div>
+                                                        </div>
+                                                        <input type="password" class="form-control" id="old"  minlength="6" maxlength="32" placeholder="Enter current password to change password">
+                                                    </div>
+                                                    <small id="up-cur-msg" class="text-danger"></small>
+                                                </div>
+
+                                                <button type="button" class="btn bg-success btn-outline-light btn-lg float-right" id="pass-submit"> Change Password </button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        
+        <footer class="bg-dark text-white-50 pt-3">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                      <div class="ml-2">
+                          <p class="card-text">Deca Bank</p>                          
+                          <p>Copyright &copy; 2019</p>
+                          <p> All Right Reserved</p>
+                      </div>
+                      
+                    </div>
+              
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                      <p><strong>QUICK LINKS</strong></p>
+                        <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a class="nav-link footerLinks text-success" href="#"> ABOUT US </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link footerLinks text-success" href="#"> FAQs </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link footerLinks text-success" href="#"> CONTACT US </a>
+                          </li>
+                        </ul>
+                    </div>
+              
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                      <p><strong>OFFICE ADDRESS</strong></p>
+                      <p>No 24, Noila Plaza, <br> Gboworin crescent, <br>Surulere, Lagos State</p>
+                    </div>
+                  </div>
+                </div>
+                
+              </footer>
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../assets/js/profile.js"></script>
+        <script src="../assets/js/logout.js"></script>
+        <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    </body>
+</html>
