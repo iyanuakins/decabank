@@ -80,12 +80,18 @@ $(document).ready(function () {
                     let user = res.filter((data) => data["email"] == email);
 
                     if(!user.length) {
-                        $("#errBox").show()
-
+                        $("#msg-hold").append(`
+                            <div class="alert alert-danger alert-dismissible fade show m-2 p-2 text-center">
+                                Authentication failed: Email or Password is incorrect.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        `);
+                        
                         setTimeout(() => {
-                            $("#errBox").hide();
+                            $("#msg-hold").empty();
                         }, 3000);
-
                     } else if (user[0].password == password){
                         let data = {userID: user[0].id, timeStamp: Date.now() + 10800000}
                         localStorage.setItem("loggedUser", JSON.stringify(data));
@@ -100,7 +106,7 @@ $(document).ready(function () {
                                 </button>
                             </div>
                         `);
-                        
+
                         setTimeout(() => {
                             $("#msg-hold").empty();
                         }, 3000);
